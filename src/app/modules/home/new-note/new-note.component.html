@@ -1,0 +1,19 @@
+<div class="w-1/2 h-full mx-auto bg-gray-300 rounded-sm overflow-hidden">
+    <div class="bg-neutral-900 w-full h-8 flex items-center justify-end px-2">
+        <mat-icon (click)="closeNoteForm()" class="w-8 h-8 text-gray-400 cursor-pointer hover:bg-red-300 hover:text-neutral-900">close</mat-icon>
+    </div>
+    <form [formGroup]="noteForm" class="flex flex-col items-center p-4 overflow-hidden" style="height: calc(100% - 4.5rem);">
+        <mat-form-field class="w-60">
+            <input (keyup.enter)="saveNote()" formControlName="title" matInput placeholder="Nombre de la nota">
+        </mat-form-field>
+
+        <mat-form-field class="w-full p-4">
+            <textarea (keyup.enter)="saveNote()" formControlName="content" class="h-60 resize-none" matInput placeholder="Contenido de la nota"></textarea>
+        </mat-form-field>
+    </form>
+    <div class="relative h-10 bg-neutral-900 flex justify-center items-center">
+        <div class="absolute -top-4 w-10 h-10 transitio duration-100 ease-in-out hover:cursor-pointer group bg-teal-700 flex items-center justify-center">
+            <mat-icon (click) ="saveNote()" class="text-gray-300 scale-x-125 hover:cursor-pointer group-hover:text-green-300">save_alt</mat-icon>
+        </div>
+    </div>
+</div>

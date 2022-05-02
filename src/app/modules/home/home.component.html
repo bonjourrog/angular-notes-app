@@ -1,0 +1,27 @@
+<main class="w-screen h-screen flex justify-between items-center overflow-hidden bg-neutral-600">
+    <aside class="w-56 h-full shadow-2xl">
+        <ng-container *ngIf="noNotesMessage; else noteList">
+            <span class="block w-full bg-red-300 text-center text-zinc-800 mt-5 py-4 font-bold">Aquí se mostraran las notas que vayas creando</span>
+        </ng-container>
+        <ng-template #noteList>
+            <div class="w-full mt-10 max-h-96 overflow-y-auto shadow-2xl">
+                <ng-container *ngFor="let note of notes">
+                    <div class="w-full flex items-center">
+                        <span matTooltip="{{note.title}}" matTooltipPosition="right" [matTooltipClass]="['hover:hidden']" class="mr-4 block w-3/4 text-slate-800 text-center py-2 cursor-pointer transition duration-200 hover:tracking-widest hover:text-slate-200">{{note.title | cutLongText }}</span>
+                        <mat-icon (click)="deleteNote(note.title)" class="block w-3/12 cursor-pointer text-base text-red-900 transition duration-100 ease-in-out hover:text-red-700 hover:scale-125">delete_outline</mat-icon>
+                    </div>
+                </ng-container>
+            </div>
+        </ng-template>
+    </aside>
+    <section class="w-4/5 h-4/5 flex justify-center items-center bg-slate-700 shadow-2xl rounded-sm">
+        <div class="w-full h-full" *ngIf="newNoteForm; else newNoteBtn">
+            <app-new-note [notes]="notes" (newNotes)="newNotes($event)" (closeNote)="closeNote($event)"></app-new-note>                
+        </div>
+        <ng-template #newNoteBtn>
+            <div (click)="newNoteForm=true" class="transition duration-100 ease-in-out cursor-pointer hover:shadow-2xl hover:scale-110 flex items-center justify-center w-20 h-20 bg-teal-700 shadow-lg">
+                <mat-icon class="text-gray-300">add</mat-icon>
+            </div>
+        </ng-template>
+    </section>
+</main>

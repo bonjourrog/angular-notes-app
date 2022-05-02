@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Note } from 'src/app/models/noteModule';
 
 @Injectable({
@@ -11,10 +10,6 @@ export class NoteService {
   constructor(
     private _httpClient: HttpClient
   ) { }
-
-  // getAll():Observable<Note[]>{
-  //   return this._httpClient.get<Note[]>('assets/data/noteData.json');
-  // }
 
   getAll():Note[]{
     const notes = localStorage.getItem('notes');

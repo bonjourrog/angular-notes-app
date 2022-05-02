@@ -2,6 +2,7 @@
 import { RouterModule, Routes } from '@angular/router';
 import { HomeModule } from './modules/home/home.module';
 
+
 export const appRoutes: Routes = [
   {
     path:'',
@@ -14,6 +15,10 @@ export const appRoutes: Routes = [
       {
         path:'home',
         loadChildren: ()=>import('./modules/home/home.module').then(m=>m.HomeModule)
+      },
+      {
+        path:'note/:title',
+        loadChildren:()=>import('./modules/note/note.module').then(m=>m.NoteModule)
       }
     ]
   }

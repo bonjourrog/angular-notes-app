@@ -1,14 +1,12 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Note } from 'src/app/models/noteModule';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NoteService {
+export class NoteService{
 
   constructor(
-    private _httpClient: HttpClient
   ) { }
 
   getAll():Note[]{

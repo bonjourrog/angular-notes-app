@@ -24,11 +24,8 @@ const homeRoutes: Route[] = [
     NewNoteComponent
   ],
   imports: [
-    ReactiveFormsModule,
-    FormsModule,
     MatFormFieldModule,
     CommonModule,
-    MatIconModule,
     MatInputModule,
     MatSnackBarModule,
     MatTooltipModule,

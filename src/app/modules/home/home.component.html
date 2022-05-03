@@ -7,7 +7,7 @@
             <div class="w-full mt-10 max-h-96 overflow-y-auto shadow-2xl">
                 <ng-container *ngFor="let note of notes">
                     <div class="w-full flex items-center">
-                        <span matTooltip="{{note.title}}" matTooltipPosition="right" [matTooltipClass]="['hover:hidden']" class="mr-4 block w-3/4 text-slate-800 text-center py-2 cursor-pointer transition duration-200 hover:tracking-widest hover:text-slate-200">{{note.title | cutLongText }}</span>
+                        <span routerLink="/note/{{note.title}}" matTooltip="{{note.title}}" matTooltipPosition="right" [matTooltipClass]="['hover:hidden']" class="mr-4 block w-3/4 text-slate-800 text-center py-2 cursor-pointer transition duration-200 hover:tracking-widest hover:text-slate-200">{{note.title | cutLongText }}</span>
                         <mat-icon (click)="deleteNote(note.title)" class="block w-3/12 cursor-pointer text-base text-red-900 transition duration-100 ease-in-out hover:text-red-700 hover:scale-125">delete_outline</mat-icon>
                     </div>
                 </ng-container>

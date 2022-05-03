@@ -4,7 +4,7 @@ import { Note } from 'src/app/models/noteModule';
 @Injectable({
   providedIn: 'root'
 })
-export class NoteService {
+export class NoteService{
 
   constructor(
   ) { }
